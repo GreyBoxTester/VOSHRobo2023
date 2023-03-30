@@ -29,7 +29,7 @@
 
 Microcontroller mcu;
 Motor motor(MOTOR_SIDE_PIN, MOTOR_PWM_PIN);
-uint16_t acivationBrightness;
+uint16_t activationBrightness;
 uint16_t obstacleBrightness;
 Timer timer;
 volatile uint32_t waterFlowOpeningClosingTime;
@@ -83,8 +83,8 @@ void setup()
 
   mcu.disablePeripherals(PWR_TWI | PWR_TIM1 | PWR_TIM2 | PWR_SPI | PWR_UART0);
   
-  acivationBrightness = obstacleBrightness = readIRSensor();
-  acivationBrightness += ACTIVATION_BRIGHTNESS;
+  activationBrightness = obstacleBrightness = readIRSensor();
+  activationBrightness += ACTIVATION_BRIGHTNESS;
   obstacleBrightness += OBSTACLE_BRIGHTNESS;
   
   EEPROM.get(0, waterFlowOpeningClosingTime);
@@ -137,7 +137,7 @@ void loop()
     return;
   }
   
-  bool isInRange = (brightness >= acivationBrightness && brightness < obstacleBrightness);
+  bool isInRange = (brightness >= activationBrightness && brightness < obstacleBrightness);
   if (isInRange && !waterFlowOpened)
   {
     blinkLED(2);
