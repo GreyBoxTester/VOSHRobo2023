@@ -6,7 +6,7 @@
 
 //====== settings ======
 
-#define SLEEP_TIMEOUT 1024                            //in ms
+#define SLEEP_TIMEOUT 512                             //in ms
 #define ACTIVATION_BRIGHTNESS 37                      //difference between zero brightness and activation brightness
 #define OBSTACLE_BRIGHTNESS 500                       //difference between zero brightness and obstacle brightness
 #define BRIGHTNESS_MEASURE_ACCURACY 40                //larger number makes better accuracy but increases measure time 
